@@ -424,18 +424,16 @@ func main() {
 
 func __p(values ...interface{}){
 	for _, v := range values {
-             fmt.Printf(%s, v)
+             fmt.Printf("%%+v\n", v)
 	}
 }
 func __t(values ...interface{}){
 	for _, v := range values {
-             fmt.Printf(%s, v)
+             fmt.Printf("%%T\n", v)
 	}
 }
 `
-	valueFmt := `"%+v\n"` // Embedding %v into template expands it prematurely!
-	typeFmt := `"%T\n"`
-	return fmt.Sprintf(template, imports, topLevel, nonTopLevel, valueFmt, typeFmt)
+	return fmt.Sprintf(template, imports, topLevel, nonTopLevel)
 }
 
 // Functions for converting the input string into a series of chunks.
