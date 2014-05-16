@@ -2,13 +2,14 @@
 
 `gore` is a command-line evaluator for golang code -- a REPL without a loop, if you will. It is a replacement for the [go playground](http://play.golang.org), while making it much easier to interactively try out bits of code: `gore` automatically supplies boiler-plate code such as `import` and `package` declarations and a `main` function wrapper. Also, since it runs on your own computer, no code is rejected on security grounds (unlike go playground's safe sandbox mode).
 
+This package is forked from https://github.com/sriram-srinivasan/gore, with light edits.
+
 #Usage
 
-(note: In the examples below, $ is the shell prompt, and the output of the snippet follows "----------------"
+(Note: In the examples below, $ is the shell prompt.)
 #### Code snippet in command line: gore evaluates its first argument
 ```
 $ gore 'println(200*300, math.Log10(1000))'
----------------------------------
 60000 +3.000000e+000
 ```
 
@@ -22,14 +23,12 @@ Enter one or more lines and hit ctrl-D
 func test() string {return "hello"}
 println(test())
 ^D
----------------------------------
 hello
 ```
 #### Alias for convenient printing
 The example above can be written more compactly:
 ```
 $ gore 'p 200*300, math.Log10(100)'
----------------------------------
 60000
 2
 ```
@@ -45,7 +44,6 @@ $ gore '
  v := Point{10, 100}
  p v
 ' 
----------------------------------
 Making a point
 {10 100}
 ```
@@ -57,7 +55,6 @@ $ gore '
   match := r.FindStringSubmatch("World says Hello")
   p "0:" + match[0], "1:"+ match[1], "2:" + match[2]
   '
----------------------------------
 0:World says Hello
 1:World
 2:Hello
@@ -67,8 +64,8 @@ $ gore '
 # Install
 
 ```
-go get github.com/sriram-srinivasan/gore
-go test github.com/sriram-srinivasan/gore/eval
+go get github.com/theclapp/gore
+go test github.com/theclapp/gore/eval
 ```
 
 # The `gore/eval` package
