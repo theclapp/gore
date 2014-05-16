@@ -8,7 +8,7 @@ This package is forked from https://github.com/sriram-srinivasan/gore, with ligh
 
 (Note: In the examples below, $ is the shell prompt.)
 #### Code snippet in command line: gore evaluates its first argument
-```
+```sh
 $ gore 'println(200*300, math.Log10(1000))'
 60000 +3.000000e+000
 ```
@@ -17,7 +17,7 @@ Note the absence of boiler-plate code like `package main`, `import "math"` and `
 
 #### Default to `stdin` without arguments
 
-```
+```sh
 $ gore
 Enter one or more lines and hit ctrl-D
 func test() string {return "hello"}
@@ -27,15 +27,15 @@ hello
 ```
 #### Alias for convenient printing
 The example above can be written more compactly:
-```
+```sh
 $ gore 'p 200*300, math.Log10(100)'
 60000
 2
 ```
-`p arg1, arg2` pretty-prints each argument by formatting it with `fmt.Printf("%v\n")`
-`t` arg1, arg2` prints the type of each argument
+`p arg1, arg2` pretty-prints each argument by formatting it with `fmt.Printf("%v\n")`.
+`t` arg1, arg2` prints the type of each argument.
 #### Command-line arg can be over multiple lines
-```
+```sh
 $ gore '
  p "Making a point"
  type Point struct {
@@ -49,7 +49,7 @@ Making a point
 ```
 #### Import statements are inferred 
 Standard go packages are automatically imported. Where there is a clash of names, the more "likely" one is preferred: `math/rand` to `crypto/rand`, `net/http/pprof` to `runtime/pprof` and `text/template` to `html/template`. Of course, you can add import statements of your own (which overrides the default preferences as well)
-```
+```sh
 $ gore '
   r := regexp.MustCompile(`(\w+) says (\w+)`)
   match := r.FindStringSubmatch("World says Hello")
@@ -63,7 +63,7 @@ $ gore '
 
 # Install
 
-```
+```sh
 go get github.com/theclapp/gore
 go test github.com/theclapp/gore/eval
 ```
