@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/sriram-srinivasan/gore/eval"
+	"github.com/theclapp/gore/eval"
 	"io"
 	"os"
 )
@@ -19,11 +19,9 @@ func main() {
 
 	out, err := eval.Eval(src)
 	if err == "" {
-		println("---------------------------------")
-		println(out)
+		fmt.Fprint(os.Stdout, out)
 	} else {
-		fmt.Println("== Error ========")
-		fmt.Println(err)
+		fmt.Fprint(os.Stderr, err)
 	}
 }
 
