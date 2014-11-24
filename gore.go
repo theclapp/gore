@@ -22,6 +22,7 @@ func main() {
 		fmt.Fprint(os.Stdout, out)
 	} else {
 		fmt.Fprint(os.Stderr, err)
+		os.Exit(1)
 	}
 }
 
