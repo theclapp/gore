@@ -98,7 +98,7 @@ func Eval(code string) (out string, err string) {
 	}()
 
 	// No additional wrapping if it has a package declaration already
-	if ok, _ := regexp.MatchString("^ *package ", code); ok {
+	if ok, _ := regexp.MatchString(`^\s*package `, code); ok {
 		out, err = run(code)
 		return out, err
 	}
